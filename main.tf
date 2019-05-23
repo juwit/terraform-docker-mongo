@@ -5,10 +5,10 @@ resource "docker_image" "mongo" {
 
 # start a container and expose the 27017 port
 resource "docker_container" "mongo" {
-  name  = "mongo"
+  name  = "${var.mongo_container_name}"
   image = "${docker_image.mongo.latest}"
   ports = {
     internal = 27017
-    external = 27017
+    external = "${var.mongo_exposed_port}"
   }
 }
