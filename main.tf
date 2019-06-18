@@ -1,6 +1,7 @@
 # get the mongo docker image
 resource "docker_image" "mongo" {
-  name = "mongo"
+  name         = "mongo"
+  keep_locally = true
 }
 
 # start a container and expose the 27017 port
